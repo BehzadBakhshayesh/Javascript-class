@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // ======================================== extends
+      class Aclass {
+        constructor(a) {
+          this.a = a;
+        }
+        aMethod() {
+          console.log("aMethod");
+        }
+        aProperty = "aProperty";
+      }
+
+      class Bclass extends Aclass {
+        constructor(b) {
+          super("a2");
+          this.b = b;
+        }
+
+        bMethod() {
+          console.log("bMethod");
+          console.log("aMethod", super.aMethod(), this.aMethod());
+          console.log("aProperty", super.aProperty, this.aProperty);
+        }
+      }
+      const newA = new Aclass("a1");
+      const newB = new Bclass("b1");
+
+      console.log("newA: ", newA);
+      console.log("newB: ", newB);
+      console.log("newB.bb() : ", newB.bb());
+      console.log(newB instanceof Aclass, newB instanceof Bclass);
+      // ======================================== static method
+
+      class Point {
+        constructor(x, y) {
+          this.x = x;
+          this.y = y;
+        }
+        static distance(a, b) {
+          return Math.hypot(a.x - b.x, a.y - b.y);
+        }
+      }
+
+      const p1 = new Point(5, 5);
+      const p2 = new Point(10, 10);
+      const distance = Point.distance(p1, p2);
+
+      console.log(p1, p2, distance);
+
+      // ========================================
+    </script>
+  </body>
+</html>
