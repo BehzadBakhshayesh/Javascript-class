@@ -44,10 +44,18 @@ class MyClass5 {
   }
 }
 
+class MyClass6 {
+  a = 1;
+  b = this.c;
+  c = this.a + 1;
+  d = this.c + 1;
+}
+
 const obj = new MyClass(1, 2);
 const obj2 = new MyClass2(3, 4);
 const obj3 = new MyClass3(5);
 const obj4 = new MyClass4(6, 7);
 const obj5 = new MyClass5();
+const obj6 = new MyClass6();
 
-console.log({ obj, obj2, obj3, obj4, obj5 });
+console.log({ obj, obj2, obj3, obj4, obj5, obj6 });

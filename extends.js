@@ -1,29 +1,28 @@
-class Aclass {
+class Parent {
   constructor(a) {
     this.a = a;
   }
-  aMethod() {
-    console.log("aMethod");
+  parentMethod() {
+    console.log("parentMethod");
   }
-  aProperty = "aProperty";
+  parentProperty = "parentProperty";
 }
 
-class Bclass extends Aclass {
+class Child extends Parent {
   constructor(b) {
     super("a2");
     this.b = b;
   }
-
-  bMethod() {
-    console.log("bMethod");
-    console.log("aMethod", super.aMethod(), this.aMethod());
-    console.log("aProperty", super.aProperty, this.aProperty);
+  childMethod() {
+    console.log("childMethod");
+    console.log("parentMethod", super.parentMethod(), this.parentMethod());
+    console.log("parentProperty", super.parentProperty, this.parentProperty);
   }
 }
-const newA = new Aclass("a1");
-const newB = new Bclass("b1");
+const parntObj = new Parent("a1");
+const childObj = new Child("b1");
 
-console.log("newA: ", newA);
-console.log("newB: ", newB);
-console.log("newB.bb() : ", newB.bb());
-console.log(newB instanceof Aclass, newB instanceof Bclass);
+console.log("parntObj: ", parntObj);
+console.log("childObj: ", childObj);
+console.log("childObj.childMethod() : ", childObj.childMethod());
+console.log(childObj instanceof Parent, childObj instanceof Child);
